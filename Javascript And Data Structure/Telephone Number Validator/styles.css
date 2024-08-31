@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-image: url("red2.png");
+    background-size: cover;
+   margin: 0;
+   padding: 0;
+}
+#container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#phone{
+    width: 23vw;
+    height: 85vh;
+    background-color: black;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+/* display of the screen */
+#inner-display{
+    width: 90%;
+    height: 80%;
+    background-color: aliceblue;
+    position: relative;
+   
+    
+    
+}
+#top-text{
+    text-align: center;
+    font-weight: bolder;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#user-input{
+width: 80%;
+height: 10%;
+display: block;
+margin: 0 auto;
+border-radius: 20px;
+text-align: center;
+font-size: 30px;
+
+}
+#btn-ctn{
+   position: absolute;
+   bottom: 0;
+   padding: 10px;
+   height: 15%;
+   width:  100%;
+   background-color: aliceblue;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   
+
+}
+#check-btn,#clear-btn{
+    cursor: pointer;
+    width:  45%;
+    border: none;
+    height: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#results-div{
+    font-weight: bold;
+    text-align: center;
+    height: 80%;
+    overflow: scroll;
+    margin-top: 10px;
+    padding: 3px;   
+
+}
