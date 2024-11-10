@@ -1,4 +1,4 @@
-
+import React, { useState } from 'react';
 import './App.css';
 import Switch from "./components/switch";
 import Input  from './components/slider';
@@ -12,15 +12,8 @@ const App =()=>{
 }
 
 const DrumMachine = () =>{
-    return(
-        <div id="drum">
-        <DrumButtons></DrumButtons>
-        <DrumSetting></DrumSetting>
-        </div>
-    )
-}
+    const  [song,setSong] = useState({name:"",src:""});
 
-const  DrumButtons = () =>{
 
     const audioFiles = [
         {name:"Heater 1",src:process.env.PUBLIC_URL+"/assets/audio/Heater-1.mp3"},
@@ -35,12 +28,22 @@ const  DrumButtons = () =>{
         
     ]
 
-    
-
     const playAudio = (index) =>{
         const audio =  new Audio(audioFiles[index].src);
         audio.play();
+        
+       
     }
+    return(
+        <div id="drum">
+        <DrumButtons playAudio={playAudio}></DrumButtons>
+        <DrumSetting display={song.name}></DrumSetting>
+        </div>
+    )
+}
+
+const  DrumButtons = ({playAudio}) =>{
+
     return (
         <div  id="drum-container">
 
@@ -57,13 +60,13 @@ const  DrumButtons = () =>{
         </div>
     )
 }
-const DrumSetting = () =>{
+const DrumSetting = (props) =>{
     return(
         <div id="Settings">     
 
 
         <div id="screen">
-            
+            {props.display}
         </div>
 
 <Input></Input>
