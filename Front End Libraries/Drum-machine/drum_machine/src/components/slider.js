@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const Input = () => {
+const Input = ({handleDisplay,volumechange}) => {
+  const [value,setValue] = useState(50)
+  function handleEvent(e){
+    setValue(e.target.value)
+    handleDisplay(`Volume:${value}`)
+    volumechange(value);
+    
+  }
+  
+  
   return (
     <StyledWrapper>
       <label className="slider">
-        <input type="range" className="level" />
+        <input type="range" className="level" value={value} onChange={(e) => handleEvent(e)} />
         <svg
           className="volume"
           xmlns="http://www.w3.org/2000/svg"

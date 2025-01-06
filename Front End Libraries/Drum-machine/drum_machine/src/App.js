@@ -12,9 +12,6 @@ const App =()=>{
 }
 
 const DrumMachine = () =>{
-    const  [song,setSong] = useState({name:"",src:""});
-
-
     const audioFiles = [
         {name:"Heater 1",src:process.env.PUBLIC_URL+"/assets/audio/Heater-1.mp3"},
         {name:"Heater 2",src:process.env.PUBLIC_URL+"/assets/audio/Heater-2.mp3"},
@@ -27,9 +24,23 @@ const DrumMachine = () =>{
         {name:"closedhh",src:process.env.PUBLIC_URL+"/assets/audio/closedhh.mp3"},
         
     ]
+    const  [currentaudio,setaudio] = useState();
+    const [display,setDisplay] = useState("");
+    const [volume,setVolume] = useState(0.5);
+
+    function handleDisplay(value){
+        setDisplay(value);
+    }
+
+   
+    let audio = new Audio();
+    audio.volume = volume;
+    
 
     const playAudio = (index) =>{
-        const audio =  new Audio(audioFiles[index].src);
+        setaudio(audioFiles[index].src);
+        audio = new Audio(audioFiles[index].src);
+        setDisplay(audioFiles[index].name)
         audio.play();
         
        
@@ -37,7 +48,7 @@ const DrumMachine = () =>{
     return(
         <div id="drum">
         <DrumButtons playAudio={playAudio}></DrumButtons>
-        <DrumSetting display={song.name}></DrumSetting>
+        <DrumSetting display={display} handleDisplay={handleDisplay} volume={volume}></DrumSetting>
         </div>
     )
 }
@@ -60,16 +71,26 @@ const  DrumButtons = ({playAudio}) =>{
         </div>
     )
 }
-const DrumSetting = (props) =>{
-    return(
-        <div id="Settings">     
+const DrumSetting = ({display,handleDisplay,volume}) =>{
 
+    function volumechange(value){
+        if (value >= 0 && value <= 100) {
+            volume = value / 100;
+        }
+       
+    }
+    
+
+    return(
+
+        <div id="Settings">     
+          
 
         <div id="screen">
-            {props.display}
+            {display}
         </div>
-
-<Input></Input>
+        
+<Input handleDisplay={handleDisplay} volumechange={volumechange}></Input>
 
 <Switch/>
   
