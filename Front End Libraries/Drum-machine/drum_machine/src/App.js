@@ -21,34 +21,47 @@ const DrumMachine = () =>{
         {name:"kick",src:process.env.PUBLIC_URL+"/assets/audio/kick.mp3"},
         {name:"open-hh",src:process.env.PUBLIC_URL+"/assets/audio/open-hh.mp3"},
         {name:"clap",src:process.env.PUBLIC_URL+"/assets/audio/clap.mp3"},
-        {name:"closedhh",src:process.env.PUBLIC_URL+"/assets/audio/closedhh.mp3"},
+        {name:"closedhh",src:process.env.PUBLIC_URL+"/assets/audio/closedhh.mp3"}, 
         
     ]
-    const  [currentaudio,setaudio] = useState();
+
     const [display,setDisplay] = useState("");
     const [volume,setVolume] = useState(0.5);
+    const [isPower,setPower] = useState(true);
 
     function handleDisplay(value){
         setDisplay(value);
     }
 
    
-    let audio = new Audio();
-    audio.volume = volume;
+    
+
+    function handleVolume(value){
+        if (value >= 0 && value <= 100) {
+            setVolume(value / 100);
+        }
+        
+    }
+    function handlePower(){
+        setPower(prev=>!prev);
+    }
+    
     
 
     const playAudio = (index) =>{
-        setaudio(audioFiles[index].src);
-        audio = new Audio(audioFiles[index].src);
+        if (isPower) {
+        const audio = new Audio(audioFiles[index].src);
+        audio.volume = volume;
+        
         setDisplay(audioFiles[index].name)
         audio.play();
-        
+        }
        
     }
     return(
         <div id="drum">
         <DrumButtons playAudio={playAudio}></DrumButtons>
-        <DrumSetting display={display} handleDisplay={handleDisplay} volume={volume}></DrumSetting>
+        <DrumSetting display={display} handleDisplay={handleDisplay} setvolume={handleVolume} power={handlePower} isPower={isPower} volume={volume}></DrumSetting>
         </div>
     )
 }
@@ -71,28 +84,25 @@ const  DrumButtons = ({playAudio}) =>{
         </div>
     )
 }
-const DrumSetting = ({display,handleDisplay,volume}) =>{
-
-    function volumechange(value){
-        if (value >= 0 && value <= 100) {
-            volume = value / 100;
-        }
-       
-    }
+const DrumSetting = ({display,handleDisplay,setvolume,power,isPower}) =>{
+    
+    
     
 
     return(
 
-        <div id="Settings">     
-          
+        <div id="Settings">
+            <label id='power'>{isPower ? "Switch On" : "Switch Off"}</label>     
+          <Switch power={power}/>
 
         <div id="screen">
             {display}
         </div>
-        
-<Input handleDisplay={handleDisplay} volumechange={volumechange}></Input>
 
-<Switch/>
+        
+<Input handleDisplay={handleDisplay} volumechange={setvolume}></Input>
+
+
   
         </div>
     )

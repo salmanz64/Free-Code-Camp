@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const Switch = ({id}) => {
+const Switch = ({power}) => {
   return (
     <StyledWrapper>
       <div className="container">
-        <input type="checkbox" name="checkbox" id="checkbox" />
+        <input type="checkbox" name="checkbox" id="checkbox" onClick={power}/>
         <label htmlFor="checkbox" className="label">
           {" "}
         </label>

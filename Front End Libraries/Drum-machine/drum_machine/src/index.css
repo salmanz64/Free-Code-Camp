@@ -81,3 +81,7 @@ font-weight: bold;
   align-items: center;
   gap: 20px;
 }
+#power{
+  color: white;
+  font-size: 20px;
+}

@@ -6,7 +6,7 @@ const Input = ({handleDisplay,volumechange}) => {
   function handleEvent(e){
     setValue(e.target.value)
     handleDisplay(`Volume:${value}`)
-    volumechange(value);
+    volumechange(e.target.value);
     
   }
   
