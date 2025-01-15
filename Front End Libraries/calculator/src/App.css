@@ -7,7 +7,7 @@ body{
 .container{
   height: 500px;
   width: 400px;
-
+  
   display: flex;
   flex-direction: column;
   gap: 5%;
@@ -21,9 +21,72 @@ body{
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .btn-container{
+  box-sizing: border-box;
   height: 70%;
   width: 100%;
   background-color: #252D44;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  place-items: center;
+ padding: 20px;
+ gap: 15px;
+  
+}
+.btn{
+  width: 100%;
+  height: 100%;
+  background-color: #F2EAE4;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: 600;
+  font-family: sans-serif;
+  
+}:nth-last-child(1),
+.btn:nth-last-child(2){
+  grid-column: span 2;
+}
+.btn:nth-child(4),.btn:nth-last-child(2){
+  background-color: #657199;
+  color: white;
+  font-size: 1.5em;
+  font-family: sans-serif;
+}
+.btn:nth-last-child(1){
+  background-color: #D13F30;
+  color: white;
+}
+
+
+
+.small-display{
+  
+  width: 100%;
+  height: 40%;
+  color: red;
+  font-size: 1.7em;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: end;
+}
+.big-display{
+ 
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 2.5em;
+  color: white;
+  position: relative;
+  right: 10px;
+  font-family: sans-serif;
+  
 }
