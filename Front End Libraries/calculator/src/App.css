@@ -69,11 +69,14 @@ body{
   
   width: 100%;
   height: 40%;
-  color: red;
+  color: yellow;
   font-size: 1.7em;
   padding: 10px;
   box-sizing: border-box;
   text-align: end;
+  overflow: hidden;
+  white-space: hidden;
+  
 }
 .big-display{
  
@@ -88,5 +91,8 @@ body{
   position: relative;
   right: 10px;
   font-family: sans-serif;
+  overflow: hidden;
+  white-space: hidden;
+  
   
 }
