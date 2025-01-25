@@ -1,17 +1,17 @@
 
 
 
-export default function Break(){
+export default function Break({breakval,changebreak}){
     return(
         <>
-        <diV className="break">
+        <div className="break">
             <h2>Break length</h2>
             <div className="break-length">
-            <button className="btn">-</button>
-            <h2>5</h2>
-            <button className="btn">+</button>
+            <button className="btn" onClick={()=>changebreak('-')}>-</button>
+            <h2>{breakval}</h2>
+            <button className="btn" onClick={()=>changebreak('+')}>+</button>
             </div>
-        </diV>
+        </div>
         </>
     )
 }

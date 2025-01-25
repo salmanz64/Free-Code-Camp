@@ -1,13 +1,13 @@
-export default function Session(){
+export default function Session({sessionVal,changeSession}){
     return(
         <>
-        <diV className="session">
+        <div className="session">
             <h2>Session length</h2>
             <div className="break-length">
-            <button className="btn">-</button>
-            <h2>25</h2>
-            <button className="btn">+</button>
+            <button className="btn" onClick={()=>changeSession('-')}>-</button>
+            <h2>{sessionVal}</h2>
+            <button className="btn" onClick={()=>changeSession('+')}>+</button>
             </div>
-        </diV></>
+        </div></>
     )
 }
