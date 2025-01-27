@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
     res.sendFile(absolutePath);
 });
 
+
+app.get('/json',(req,res)=>{
+    res.json({"Message": "Hello Json"});
+})
 app.use("/",express.static(__dirname+'/public'))
 // Start the server
 app.listen(PORT, () => {
