@@ -27,6 +27,13 @@ app.get('/name',(req,res)=>{
     const last = req.query.last;
     res.send({first,last})
 })
+app.use(express.urlencoded({extended:false}))
+
+app.post('/submit',(req,res)=>{
+    const {username,Password} = req.body;
+    res.send({message: `${username} is the user. and the password is ${Password}`})
+
+})
 
 app.get('/book/:book_id',(req,res,next)=>{
     const id = req.params.book_id;
