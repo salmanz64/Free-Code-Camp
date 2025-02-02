@@ -25,15 +25,47 @@ app.get("/api/hello", function (req, res) {
 });
 
 
-const date = '2015-12-25'
-const unixTimeStamp = 1451001600000
-app.get(`/api/:date`,(req,res,next)=>{
-  req.time = new Date().toString()
+
+
+app.get(`/api/:date?`,(req,res,next)=>{
+  let dtparam = req.params.date;
+  console.log(dtparam)
+  let unixdata ,utcdata;
+ 
+  //if no proper data is recieved the current time and unix will be sent
+  if(!dtparam){
+
+    console.log(dtparam)
+
+    
+    utcdata = new Date().toUTCString();
+    unixdata = new Date().getTime();
+
+  }
+  // checks whether a unix data is parsed and convert it to utc
+  else if(!isNaN(dtparam)){
+    
+    console.log(dtparam)
+    unixdata = parseInt(dtparam);
+    utcdata = new Date(parseInt(dtparam)).toUTCString();
+  }else{
+    
+    // if a particular date is sent then it will be converted to unix and utc
+    let dateObj = new Date(dtparam);
+    if(dateObj.toString() = "Invalid Date"){
+      return res.json({ error : "Invalid Date" })
+    }
+   
+    utcdata = dateObj.toUTCString() 
+    unixdata = dateObj.getTime()
+  }
+  req.utc = utcdata;
+  req.unix = unixdata;
   next()
 },function(req,res){
-  res.json({unix:unixTimeStamp,utc:req.time})
+  
+  res.json({unix:req.unix,utc:req.utc})
 })
-
 
 
 // Listen on port set in environment variable or default to 3000
