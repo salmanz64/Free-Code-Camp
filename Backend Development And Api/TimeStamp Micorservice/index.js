@@ -3,6 +3,7 @@
 
 // init project
 var express = require('express');
+
 var app = express();
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
@@ -26,7 +27,6 @@ app.get("/api/hello", function (req, res) {
 
 
 
-
 app.get(`/api/:date?`,(req,res,next)=>{
   let dtparam = req.params.date;
   console.log(dtparam)
@@ -37,7 +37,6 @@ app.get(`/api/:date?`,(req,res,next)=>{
 
     console.log(dtparam)
 
-    
     utcdata = new Date().toUTCString();
     unixdata = new Date().getTime();
 
@@ -50,9 +49,10 @@ app.get(`/api/:date?`,(req,res,next)=>{
     utcdata = new Date(parseInt(dtparam)).toUTCString();
   }else{
     
+    
     // if a particular date is sent then it will be converted to unix and utc
     let dateObj = new Date(dtparam);
-    if(dateObj.toString() = "Invalid Date"){
+    if(dateObj.toString() == "Invalid Date"){
       return res.json({ error : "Invalid Date" })
     }
    
