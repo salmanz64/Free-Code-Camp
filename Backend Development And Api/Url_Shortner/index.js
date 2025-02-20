@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
+app.use(express.urlencoded({extended:false}))
 
 // Basic Configuration
 const port = process.env.PORT || 3000;
@@ -21,9 +22,10 @@ app.get('/api/hello', function(req, res) {
 
 
 
+
 app.post('/api/shorturl',function(req,res){
 
-  let org_url = `${req.protocol}://${req.get('host')}${req.originalUrl}`
+  let org_url = req.body["url"]
   res.json({"original_url":org_url})
 })
 
