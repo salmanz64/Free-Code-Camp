@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require("mongoose")
 const cors = require('cors');
+const UrlRoute = require('./routers/shorturl.route.js')
 const app = express();
 app.use(express.urlencoded({extended:false}))
 
@@ -8,6 +10,9 @@ app.use(express.urlencoded({extended:false}))
 const port = process.env.PORT || 3000;
 
 app.use(cors());
+
+// moved the code to the routers
+app.use('/api/shorturl',UrlRoute)
 
 app.use('/public', express.static(`${process.cwd()}/public`));
 
@@ -23,12 +28,6 @@ app.get('/api/hello', function(req, res) {
 
 
 
-app.post('/api/shorturl',function(req,res){
-
-  let org_url = req.body["url"]
-  res.json({"original_url":org_url})
-})
-
 
 
 
@@ -36,3 +35,4 @@ app.post('/api/shorturl',function(req,res){
 app.listen(port, function() {
   console.log(`http://localhost:${3000}`);
 });
+mongoose.connect("mongodb+srv://salmannoushad003:yCILo6nWw3BheQq1@cluster0.bmlet.mongodb.net/short_url?retryWrites=true&w=majority&appName=Cluster0").then(()=>console.log("mongoose connected"))
