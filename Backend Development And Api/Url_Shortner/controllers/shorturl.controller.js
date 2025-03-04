@@ -13,6 +13,7 @@ const CreateUrl = async (req, res) => {
     }
 
     try {
+        //count the number of documents
         let count = await Url.countDocuments();
 
         const url = await Url.create({
