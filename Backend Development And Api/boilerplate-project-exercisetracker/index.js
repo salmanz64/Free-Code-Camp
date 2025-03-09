@@ -3,7 +3,8 @@ const app = express()
 const cors = require('cors')
 require('dotenv').config()
 const mongoose = require('mongoose')
-const Userrouter = require('./routers/email.router.js')
+const userRouter = require('./routers/user.router')
+
 
 app.use(cors())
 app.use(express.static('public'))
@@ -15,8 +16,8 @@ app.use(express.json())
 app.use(express.urlencoded({
   extended:true
 }))
+app.use('/api/users',userRouter)
 
-app.use('/api/users',Userrouter)
 
 
 
@@ -26,3 +27,4 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 })
 
 mongoose.connect('mongodb+srv://salmannoushad003:lKeWLt7wawAsX0bc@cluster0.bmlet.mongodb.net/fitness_tracker?retryWrites=true&w=majority&appName=Cluster0').then(()=>console.log("connected to mongoose"))
+

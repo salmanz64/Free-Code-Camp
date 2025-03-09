@@ -15,6 +15,20 @@ const createEmail = async(req,res)=>{
     }
 }
 
+const getUsers = async(req,res)=>{
+    try{
+       
+        const users = await User.find({})
+        res.status(200).json(users);
+    }catch(e){
+        res.status(500).json({
+            error: e.toString()
+        })
+    }
+
+}
+
 module.exports ={
-    createEmail
+    createEmail,
+    getUsers
 }
