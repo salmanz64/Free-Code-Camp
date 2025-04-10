@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A survey form</title>
+    <title>Survey Form</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>A Simple Survey form</h1>
-    <p>Thank you for taking time to look at my survey</p>
-    <form action="">
-        <fieldset>
-            <label for="name">Name</label>
-            <input type="text" class="input" id="name" value="name" required>
-            <label for="Email">Email</label>
-            <input type="email" class="input" id="email" value="email" required>
-            <label for="Age">Age(optional)</label>
-            <input type="number"  class="input" id="Age" value="Age" min="11" max="99">
-            <label for="select">select</label>
-            <select id="select">
-                <option>hello</option>
-                <option>welcome</option>
-                <option>nice</option>
-                <option>great</option>
-            </select>
-            <label>what do you need</label>
-            <label for="definitely" class="radio" >
-                <input id="definitely" type="radio" name="role" value="definitely" checked />  Definitely</label>
-                <label for="Maybe" class="radio" >
-                <input id="Maybe" type="radio" name="role" value="Maybe" />  Maybe</label>
-                <label>Would you like to</label>
-                <label for="challenges" class="radio" >
-                    <input id="challenges" type="checkbox" name="challenges" value="challenges" />  Not sure</label>
-                    
-                    <label for="challenge" class="radio" >
-                    <input id="challenge" type="checkbox" name="challenge" value="challenge" />  Not hi</label>
-               
-               <label for="any suggestions">Any suggestions</label>
-                    <textarea rows="8" cols="55">enter you comment here</textarea>
-              
-              <button id="submit">Submit</button>
-              
-        </fieldset>
+    <h1 id="title">FeedBack On HyperX</h1>
+    <p id="description">The Way to Tomarrow</p>
+    <form id="survey-form">
+        <label id="name-label" for="name">Name</label>
+        <input id="name" type="text" name="name" required placeholder="Name" />
+        <label id="email-label" for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Email" required />
+        <label id="number-label" for="number">Number</label>
+        <input type="number" id="number" name="number" placeholder="Number" min="0" max="100" />
+        <label for="dropdown">Education</label>
+        <select id="dropdown">
+            <option disabled hidden selected> Select An Option</option>
+            <option>BTech</option>
+            <option>BCA</option>
+        </select>
+        <label for="Year-of-Course" id="year">Year of Course
+       
+        <label for="First-Year" >
+            <input id="First-Year" type="radio" name="role" checked value="First-Year" />First-Year</label>
+
+        <label for="Second-Year">
+            <input id="Second-Year" type="radio" name="role" value="Second-Year" />Second-Year</label>
+        <label for="Third-Year">
+            <input id="Third-Year" type="radio" name="role" value="Third-Year" />Third-Year</label>
+        <label for="Fourth-Year">
+            <input id="Fourth-Year" type="radio" name="role" value="Fourth-Year" />Fourth-Year</label>
+        </label>
+        <p class="plans">Did You need The Following Plans</p>
+        <label for="challenges">Flutter
+            <input id="challenges" type="checkbox" name="challenges" value="challenges" /></label>
+        <label for="challenge">Web-Development
+            <input id="challenge" type="checkbox" name="challenge" value="challenge" /></label>
+
+
+
+
+        <label for="any-suggestions">Feedback</label>
+            <textarea>enter you comment here</textarea>
+        <input type="submit" value="Submit" id="submit">
     </form>
 </body>
+
 </html>
