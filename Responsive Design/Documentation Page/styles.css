@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+#navbar{
+    position: sticky;
+    width: 600px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    
+    
+}
+
+#main-doc{
+    padding: 20px;
+}
+ul{
+    border-radius: 10px;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    background-color: white;
+    overflow: scroll;
+}
+li{
+    padding: 25px;
+    max-width: 100%;
+    
+    background-color: white;
+    border-top: 1px solid grey;
+}
+a{
+    text-decoration: none;
+}
