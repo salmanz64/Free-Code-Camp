@@ -12,7 +12,7 @@ body{
     height: 100vh;
     top: 0;
     left: 0;
-    padding: 10px;
+    padding: 0 10px;
     background-color: black;
     color: white;
     
@@ -22,7 +22,7 @@ body{
 #main-doc{
     padding: 20px;
 }
-ul{
+#navbar ul{
     border-radius: 10px;
     width: 100%;
     padding: 0;
@@ -30,13 +30,57 @@ ul{
     background-color: white;
     overflow: scroll;
 }
-li{
+#navbar li{
     padding: 25px;
     max-width: 100%;
-    
+    font-weight: bold;
     background-color: white;
     border-top: 1px solid grey;
 }
-a{
+#navbar a{
     text-decoration: none;
+    color: black;
+}
+#navbar li:hover{
+    background-color: black;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+#navbar li:hover a{
+    color: white;
+}
+#main-doc header{
+    font-size: 30px;
+    font-weight: bold;
+}
+code{
+    background-color: black;
+    padding: 10px;
+    color: greenyellow;
+    border-radius: 10px;
+    word-break: normal;
+    word-wrap: normal;
+    display: block;
+    white-space: pre-line;
+    line-height: 2;
+}
+@media only screen and (max-width:768px) {
+    body{
+        display: block;
+    }
+    #navbar{
+        position: relative;
+        width: 600px;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        padding: 0 10px;
+        background-color: black;
+        color: white;
+        
+        
+    }
+
+    
 }
